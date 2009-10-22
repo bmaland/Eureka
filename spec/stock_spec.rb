@@ -3,9 +3,9 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 describe "Stock data example" do
 
   before(:all) do
-    @training_data = Instances.from_path(File.dirname(__FILE__) +
+    @training_data = Instances.from_arff(File.dirname(__FILE__) +
                                          "/data/stock_training_data.arff")
-    @testing_data  = Instances.from_path(File.dirname(__FILE__) +
+    @testing_data  = Instances.from_arff(File.dirname(__FILE__) +
                                          "/data/stock_testing_data.arff")
   end
 

@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 describe "XOR example" do
 
   before(:all) do
-    @training_data = Instances.from_path(File.dirname(__FILE__) +
+    @training_data = Instances.from_arff(File.dirname(__FILE__) +
                                          "/data/xor.arff")
   end
 

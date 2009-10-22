@@ -22,8 +22,9 @@ module Java::WekaCore
     include Enumerable
 
     class << self
-      def from_path(file_path)
-        data = self.new(java.io.BufferedReader.new(java.io.FileReader.new(file_path)))
+      # Reads in instances using the standard Weka ARFF format
+      def from_arff(path)
+        data = self.new(java.io.BufferedReader.new(java.io.FileReader.new(path)))
         data.set_class_index(data.num_attributes - 1)
         return data
       end
