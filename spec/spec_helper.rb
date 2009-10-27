@@ -8,3 +8,5 @@ require 'spec/autorun'
 Spec::Runner.configure do |config|
 
 end
+
+include Eureka

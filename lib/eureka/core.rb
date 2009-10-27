@@ -1,20 +1,47 @@
-import "weka.core.FastVector"
-import "weka.core.Instances"
+# Core extensions
+class Array
+  def to_fast_vector
+    FastVector.new(self)
+  end
+end
+
+# Eureka
+module Eureka
+  import "weka.core.Attribute"
+  import "weka.core.FastVector"
+  import "weka.core.Instances"
+end
 
 module Java::WekaCore
 
   class Attribute
-    def [](i)
-      value(i)
-    end
+    alias :[] :value
   end
 
   class FastVector
-    def self.make(*args)
-      fv = FastVector.new(args.length)
-      args.each { |arg| fv.add_element(arg) }
-      return fv
+
+    include Enumerable
+
+    def initialize(int_or_array=0)
+      if int_or_array.kind_of?(Fixnum)
+        super(int_or_array)
+      else
+        super(int_or_array.size)
+        int_or_array.each { |arg| self.add_element(arg) }
+      end
     end
+
+    alias :length :size
+    alias :first :first_element
+    alias :last :last_element
+    alias :<< :add_element
+    alias :[] :element_at
+    alias :include? :contains
+
+    def each
+      size.times { |i| yield self[i] }
+    end
+
   end
 
   class Instances
@@ -40,20 +67,11 @@ module Java::WekaCore
       end
     end
 
-    def <<(i)
-      add(i)
-    end
-
-    def [](i)
-      instance(i)
-    end
+    alias :<< :add
+    alias :[] :instance
 
     def each
       num_instances.times { |i| yield self[i] }
-    end
-
-    def to_s
-      to_summary_string
     end
 
   end
