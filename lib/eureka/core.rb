@@ -9,6 +9,7 @@ end
 module Eureka
   import "weka.core.Attribute"
   import "weka.core.FastVector"
+  import "weka.core.Instance"
   import "weka.core.Instances"
 end
 
@@ -31,17 +32,21 @@ module Java::WekaCore
       end
     end
 
-    alias :length :size
-    alias :first :first_element
-    alias :last :last_element
-    alias :<< :add_element
-    alias :[] :element_at
+    alias :length   :size
+    alias :first    :first_element
+    alias :last     :last_element
+    alias :<<       :add_element
+    alias :[]       :element_at
     alias :include? :contains
 
     def each
       size.times { |i| yield self[i] }
     end
 
+  end
+
+  class Instance
+    alias :size :num_values
   end
 
   class Instances
@@ -67,8 +72,9 @@ module Java::WekaCore
       end
     end
 
-    alias :<< :add
-    alias :[] :instance
+    alias :<<   :add
+    alias :[]   :instance
+    alias :size :num_instances
 
     def each
       num_instances.times { |i| yield self[i] }
