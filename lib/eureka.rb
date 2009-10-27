@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-# Wrapper for accessing WEKA from JRuby.
-# Created by Bjørn Arild Mæland [github.com/Chrononaut]
-
 require "java"
 
 # weka.jar must be on your CLASSPATH
