@@ -9,7 +9,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = "Use Weka from JRuby"
   gem.description = "Weka wrapper for JRuby"
   gem.email = "bjorn.maeland@gmail.com"
-  gem.homepage = "http://github.com/Chrononaut/eureka"
+  gem.homepage = "http://github.com/Chrononaut/Eureka"
   gem.authors = ["Bjørn Arild Mæland"]
   gem.add_development_dependency "rspec", ">= 1.2.9"
 end
@@ -34,7 +34,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "eureka #{version}"
+  rdoc.title = "Eureka #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
