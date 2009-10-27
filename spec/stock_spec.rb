@@ -1,5 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
+import "weka.classifiers.meta.FilteredClassifier"
+import "weka.classifiers.trees.J48"
+import "weka.filters.unsupervised.attribute.Remove"
+
 describe "Stock data example" do
 
   before(:all) do
