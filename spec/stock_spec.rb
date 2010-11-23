@@ -1,8 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-import "weka.classifiers.meta.FilteredClassifier"
-import "weka.classifiers.trees.J48"
-import "weka.filters.unsupervised.attribute.Remove"
+java_import "weka.classifiers.meta.FilteredClassifier"
+java_import "weka.classifiers.trees.J48"
+java_import "weka.filters.unsupervised.attribute.Remove"
 
 describe "Stock data example" do
 

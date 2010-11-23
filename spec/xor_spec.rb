@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-import "weka.classifiers.lazy.IBk"
+java_import "weka.classifiers.lazy.IBk"
 
 describe "XOR example" do
 
