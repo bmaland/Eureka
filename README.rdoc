@@ -2,12 +2,9 @@
 
 JRuby wrapper for Weka (http://www.cs.waikato.ac.nz/ml/weka/).
 
-Targets Weka 3.6.1, but it should work with earlier versions. Make sure to have
-weka.jar on your CLASSPATH.
-
 For examples of usage, look at the specs.
 
-Created by Bjørn Arild Mæland [github.com/Chrononaut]
+Created by Bjørn Arild Mæland [github.com/bmaland]
 
 == Installation
 
@@ -26,4 +23,4 @@ gem install eureka
 
 == Copyright
 
-Copyright (c) 2009 Bjørn Arild Mæland. See LICENSE for details.
+Copyright (c) 2009-2010 Bjørn Arild Mæland. See LICENSE for details.
