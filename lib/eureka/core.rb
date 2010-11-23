@@ -7,10 +7,11 @@ end
 
 # Eureka
 module Eureka
-  import "weka.core.Attribute"
-  import "weka.core.FastVector"
-  import "weka.core.Instance"
-  import "weka.core.Instances"
+
+  %w[Attribute FastVector Instance Instances].each do |klass|
+    java_import "weka.core.#{klass}"
+  end
+
 end
 
 module Java::WekaCore
@@ -46,7 +47,9 @@ module Java::WekaCore
   end
 
   class Instance
+
     alias :size :num_values
+
   end
 
   class Instances
