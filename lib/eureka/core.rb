@@ -1,10 +1,3 @@
-# Core extensions
-class Array
-  def to_fast_vector
-    FastVector.new(self)
-  end
-end
-
 # Eureka
 module Eureka
 
