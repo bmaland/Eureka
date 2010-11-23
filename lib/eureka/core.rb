@@ -1,7 +1,7 @@
 # Eureka
 module Eureka
 
-  %w[Attribute FastVector Instance Instances].each do |klass|
+  %w[Attribute FastVector Instance Instances matrix.Matrix].each do |klass|
     java_import "weka.core.#{klass}"
   end
 
@@ -74,6 +74,23 @@ module Java::WekaCore
 
     def each
       num_instances.times { |i| yield self[i] }
+    end
+
+  end
+
+end
+
+module Java::WekaCoreMatrix
+
+  class Matrix
+
+    def [](i, j=nil)
+      if j.nil? # get an entire row (submatrice)
+        self.get_matrix([i].to_java(:int),
+                        (0...self.column_dimension).to_a.to_java(:int))
+      else # get a specific element
+        self.get(i, j)
+      end
     end
 
   end

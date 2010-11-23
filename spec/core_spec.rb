@@ -1,6 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe "Weka Core" do
+
   describe "FastVector" do
     before(:all) do
       @fv = FastVector.new(("a".."z").to_a)
@@ -22,4 +23,20 @@ describe "Weka Core" do
       @fv[0].should == "a"
     end
   end
+
+  describe "Matrix" do
+    before(:all) do
+      @m = [[1,2,3],[4,5,6],[7,8,10]].to_matrix
+    end
+
+    it "should be possible to get a specific element" do
+      @m[0,0].should eq(1)
+      @m[2,2].should eq(10)
+    end
+
+    it "should be possible to get a subrow" do
+      @m[0].to_s.should eq(" 1 2 3\n")
+    end
+  end
+
 end
