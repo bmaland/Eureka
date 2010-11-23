@@ -1,3 +1,6 @@
+require "rubygems"
+require "bundler/setup"
+
 require "java"
 
 $:.unshift(here = File.dirname(__FILE__))
