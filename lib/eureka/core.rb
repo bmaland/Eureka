@@ -7,6 +7,7 @@ module Eureka
 
 end
 
+
 module Java::WekaCore
 
   class Attribute
@@ -57,11 +58,22 @@ module Java::WekaCore
         return data
       end
 
+      # Reads C4.5 input files. Takes a filestem or filestem with .names or
+      # .data appended. Assumes that both .names and .data exist in the
+      # directory of the supplied filestem.
+      #
       # http://weka.sourceforge.net/doc/weka/core/converters/C45Loader.html
-      def from_c45
-        raise
+      def from_c45(path)
+        loader = Java::WekaCoreConverters::C45Loader.new
+        if path.is_a?(String)
+          loader.source = java.io.File.new(path)
+        elsif path.is_a?(File)
+          loader.source = path.path
+        end
+        return loader.data_set
       end
 
+      # TODO implement
       # http://weka.sourceforge.net/doc/weka/core/converters/CSVLoader.html
       def from_csv
         raise
